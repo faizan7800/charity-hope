@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import {UploadCloud} from 'lucide-react'
 const Donate = () => {
     const [activeButton, setActiveButton] = useState(null);
     const [inputValue, setInputValue] = useState('');
@@ -26,19 +26,30 @@ const Donate = () => {
     },[])
     let submitValue = inputValue ? `Donate $${inputValue}` : `Donate`;
     return (
-        <div className='container mx-auto px-0 lg:px-4 py-6 md:py-6 md:pt-4 rounded-lg border-2 border-orange-500 border-t-orange-600 mt-8 mb-8 w-[96%] md:w-[70%]'>
+        <div className='container mx-auto px-0 lg:px-4 py-6 md:py-6 md:pt-4 rounded-lg border-2 border-orange-400 border-t-orange-600 mt-8 mb-8 w-[96%] md:w-[70%]'>
            <h1 className='text-xl md:text-2xl lg:text-3xl font-bold leading-tight bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent text-center pb-2'>Donation Form</h1>
             <form className='flex flex-col justify-center items-start flex-wrap px-4 w-full'>
-                <div className='grid grid-cols-1 md:grid-cols-2 w-full gap-3'>
-                    <input type="text" placeholder='Name *' className='border border-orange-500  p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold' required/>
-                    <input type="text" placeholder='Address *' className='border border-orange-500  p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold' required/>
+                <div className='grid grid-cols-1 md:grid-cols-8 w-full gap-3'>
+                    <input type="text" placeholder='Name *' className='border border-orange-400 p-2 md:p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold md:col-span-3 lg:col-span-3' required/>
+                    <input type="email" placeholder='Email *' className='border border-orange-400 p-2 md:p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold md:col-span-3 lg:col-span-3' required/>
+                   
+<div class="flex items-center justify-center w-full md:col-span-2 lg:col-span-2">
+    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full border-2 border-orange-400 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-orange-100">
+        <div class="flex flex-col items-center justify-center p-1">
+            <UploadCloud className='text-orange-500'/>
+            <p class="mb-0 text-sm text-orange-500"><span class="font-semibold">Upload Image</span></p>
+        </div>
+        <input id="dropzone-file" type="file" class="hidden" />
+    </label>
+</div> 
+
                    
                 </div>
 
-                <div className=' my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3'>
-                <input type="text" placeholder='Email *' className='border border-orange-500  p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold' required/>
-                <input type="text" placeholder='Phone Number *' className='border border-orange-500  p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold' required/>
-                <input type="text" placeholder='Country *' className='border border-orange-500  p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold md:col-span-2 lg:col-span-1' required/>
+                <div className=' my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 w-full gap-3'>
+                <input type="text" placeholder='Address *' className='border border-orange-400 p-2 md:p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold md:col-span-8 lg:col-span-4' required/>
+                <input type="text" placeholder='Phone Number *' className='border border-orange-400 p-2 md:p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold md:col-span-4 lg:col-span-2' required/>
+                <input type="text" placeholder='Country *' className='border border-orange-400 p-2 md:p-4 rounded placeholder:text-orange-300 outline-none text-orange-500 font-semibold md:col-span-4 lg:col-span-2' required/>
                 </div>
                 <div className='mb-3 grid grid-cols-1 w-full gap-3'>
                 <p className='text-orange-500 font-bold text-xl md:text-2xl mb-0'>Select Type to Donate:</p>
@@ -118,24 +129,24 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-3 w-full gap-3'>
-               <div className='flex justify-center gap-2 md:gap-8 items-center p-2 border border-orange-500 rounded bg-orange-500/10 md:col-span-2'>
+               <div className='flex justify-center gap-2 md:gap-8 items-center p-2 border border-orange-400 rounded bg-orange-500/10 md:col-span-2'>
                         <p className='text-orange-500 font-bold text-xl'>Donate</p>
                         <button
-                            className={`border border-orange-500 rounded-full w-10 h-10 md:w-10 md:h-10 font-bold text-xl hover:bg-orange-500 hover:text-slate-50 transition-all duration-300 ${activeButton === 5 ? 'bg-orange-500 text-slate-50' : 'text-orange-500 bg-slate-50'
+                            className={`border border-orange-400 rounded-full w-10 h-10 md:w-10 md:h-10 font-bold text-xl hover:border-2 ${activeButton === 5 ? 'bg-orange-500 text-slate-50' : 'text-orange-500 bg-slate-50'
                                 }`}
                             onClick={(e) => { e.preventDefault(); handleButtonClick(5); }}
                         >
                             5
                         </button>
                         <button
-                            className={`border border-orange-500 rounded-full w-10 h-10 font-bold text-xl hover:bg-orange-500 hover:text-slate-50 transition-all duration-300 ${activeButton === 10 ? 'bg-orange-500 text-slate-50' : 'text-orange-500 bg-slate-50'
+                            className={`border border-orange-400 rounded-full w-10 h-10 font-bold text-xl hover:border-2 ${activeButton === 10 ? 'bg-orange-500 text-slate-50' : 'text-orange-500 bg-slate-50'
                                 }`}
                             onClick={(e) => { e.preventDefault(); handleButtonClick(10) }}
                         >
                             10
                         </button>
                         <button
-                            className={`border border-orange-500 rounded-full w-10 h-10  font-bold text-xl  hover:bg-orange-500 hover:text-slate-50 transition-all duration-300 ${activeButton === 15 ? 'bg-orange-500 text-slate-50' : 'text-orange-500 bg-slate-50'
+                            className={`border border-orange-400 rounded-full w-10 h-10  font-bold text-xl  hover:border-2 ${activeButton === 15 ? 'bg-orange-500 text-slate-50' : 'text-orange-500 bg-slate-50'
                                 }`}
                             onClick={(e) => { e.preventDefault(); handleButtonClick(15) }}
                         >
